@@ -3,7 +3,7 @@
     public class TypeTests
     {
         [Test]
-        public void TypeWartosciowyInt()
+        public void CheckTwoTypeWartosciowyIntAreNotEqual()
         {
             //arrange
             int number1 = 1;
@@ -15,7 +15,7 @@
 
         }
         [Test]
-        public void TypeReferncijnyString()
+        public void CheckTwoTypeReferncijnyStringAreEqual()
         {
             //arrange
             string user1 = "Kasper";
@@ -24,6 +24,18 @@
 
             //assert
             Assert.AreEqual(user1, user2);
+
+        }
+        [Test]
+        public void CheckTwoTypeReferncijnyStringAreNotEqual()
+        {
+            //arrange
+            var user1 = GetUser("Kasper");
+            var user2 = GetUser("Kasia");
+            //act
+
+            //assert
+            Assert.AreNotEqual(user1.Name, user2.Name);
 
         }
 
