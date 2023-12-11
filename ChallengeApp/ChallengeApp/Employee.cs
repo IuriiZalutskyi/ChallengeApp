@@ -6,6 +6,11 @@ namespace ChallengeApp
     {
         private List<float> grades = new List<float>();
 
+        public Employee()
+        {
+
+        }
+
         public Employee(string name, string surname)
         {
             this.Name = name;
@@ -36,6 +41,31 @@ namespace ChallengeApp
             this.AddGrade(gradeAsFloat);
         }
 
+        public void AddGrade(char grade)
+        {
+            switch (grade)
+            {
+                case 'A':
+                    this.grades.Add(100);
+                    break;
+                case 'B':
+                    this.grades.Add(80);
+                    break;
+                case 'C':
+                    this.grades.Add(60);
+                    break;
+                case 'D':
+                    this.grades.Add(40);
+                    break;
+                case 'E':
+                    this.grades.Add(20);
+                    break;
+                default:
+                    Console.WriteLine("Wrong Letter");
+                    break;
+            }
+        }
+
         public void AddGrade(string grade)
         {
             if (float.TryParse(grade, out float result))
@@ -48,8 +78,6 @@ namespace ChallengeApp
 
             }
         }
-
-
 
         public Statistics GetStatistics()
         {
@@ -69,6 +97,25 @@ namespace ChallengeApp
             }
 
             statistics.Avarege = statistics.Avarege / this.grades.Count;
+
+            switch (statistics.Avarege)
+            {
+                case var averege when averege >= 80:
+                    statistics.AvaregeLetter = 'A';
+                    break;
+                case var averege when averege >= 60:
+                    statistics.AvaregeLetter = 'B';
+                    break;
+                case var averege when averege >= 40:
+                    statistics.AvaregeLetter = 'C';
+                    break;
+                case var averege when averege >= 20:
+                    statistics.AvaregeLetter = 'D';
+                    break;
+                default:
+                    statistics.AvaregeLetter = 'E';
+                    break;
+            }
             return statistics;
         }
     }

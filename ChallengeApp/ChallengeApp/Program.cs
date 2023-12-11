@@ -1,11 +1,22 @@
 ﻿using ChallengeApp;
 
-var employee = new Employee("Adam", "Kasperski");
-employee.AddGrade("4000");
-employee.AddGrade("Adam");
-employee.AddGrade(-5);
-employee.AddGrade(3000);
-employee.AddGrade(5);
-employee.AddGrade(6);
+Console.WriteLine("Witamy w Programie POP do oceny pracownikow");
+Console.WriteLine("----------------------------------------");
+Console.WriteLine();
 
+var employee = new Employee();
+while(true)
+{
+    Console.WriteLine("Add next ocene pracownika");
+    var input = Console.ReadLine();
+    if (input == "q")
+    {
+        break;
+    }
+    employee.AddGrade(input);
+}
 
+var statistics = employee.GetStatistics();
+Console.WriteLine($"Average: {statistics.Avarege}");
+Console.WriteLine($"Min: {statistics.Min}");
+Console.WriteLine($"Max: {statistics.Max}");
