@@ -15,10 +15,6 @@ namespace ChallengeApp
         public string Surname { get; private set; }
         public void AddGrade(float grade)
         {
-            //3.99
-            //3
-            int valueInInt = (int)grade;
-            float f = valueInInt;
             if (grade >= 0 && grade <= 100)
             {
                 this.grades.Add(grade);
@@ -30,16 +26,15 @@ namespace ChallengeApp
         }
         public void AddGrade(double grade)
         {
-            float valueinfloat = (float)grade;
-            this.AddGrade(valueinfloat);
+            float gradeAsFloat = (float)grade;
+            this.AddGrade(gradeAsFloat);
         }
 
-        public void AddGrade(long grade)
+        public void AddGrade(int grade)
         {
-            float valueinfloat = (float)grade;
-            this.AddGrade(valueinfloat);
+            float gradeAsFloat = (float)grade;
+            this.AddGrade(gradeAsFloat);
         }
-
 
         public void AddGrade(string grade)
         {
@@ -49,10 +44,13 @@ namespace ChallengeApp
             }
             else
             {
-                Console.WriteLine("String is not float");
+                Console.WriteLine("String in not float");
+
             }
         }
-       
+
+
+
         public Statistics GetStatistics()
         {
             var statistics = new Statistics();
@@ -62,11 +60,11 @@ namespace ChallengeApp
 
             foreach (var grade in this.grades)
             {
-                if (grade >= 0) 
-                { 
-                statistics.Max = Math.Max(statistics.Max, grade);
-                statistics.Min = Math.Min(statistics.Min, grade);
-                statistics.Avarege += grade;
+                if (grade >= 0)
+                {
+                    statistics.Max = Math.Max(statistics.Max, grade);
+                    statistics.Min = Math.Min(statistics.Min, grade);
+                    statistics.Avarege += grade;
                 }
             }
 
