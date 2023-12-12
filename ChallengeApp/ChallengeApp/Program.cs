@@ -5,7 +5,7 @@ Console.WriteLine("----------------------------------------");
 Console.WriteLine();
 
 var employee = new Employee();
-while(true)
+while (true)
 {
     Console.WriteLine("Add next ocene pracownika");
     var input = Console.ReadLine();
@@ -13,7 +13,14 @@ while(true)
     {
         break;
     }
-    employee.AddGrade(input);
+    try
+    {
+        employee.AddGrade(input);
+    }
+    catch (Exception e)
+    {
+        Console.WriteLine($"Exception catched: {e.Message}");
+    }
 }
 
 var statistics = employee.GetStatistics();
