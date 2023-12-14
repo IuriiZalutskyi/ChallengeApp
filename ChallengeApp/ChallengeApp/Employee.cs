@@ -71,7 +71,6 @@ namespace ChallengeApp
             else
             {
                 throw new Exception("String in not float");
-
             }
         }
 

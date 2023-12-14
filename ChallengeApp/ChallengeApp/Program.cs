@@ -22,7 +22,6 @@ while (true)
         Console.WriteLine($"Exception catched: {e.Message}");
     }
 }
-
 var statistics = employee.GetStatistics();
 Console.WriteLine($"Average: {statistics.Avarege}");
 Console.WriteLine($"Min: {statistics.Min}");
